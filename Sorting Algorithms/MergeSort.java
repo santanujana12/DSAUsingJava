@@ -3,10 +3,14 @@ import java.util.List;
 
 public class MergeSort {
 
+    // This function
     public static void merge(int[] arr, int left, int mid, int right) {
+        // Temporary array to store sorted elements
         List<Integer> temp = new ArrayList<>();
-        int j = 0;
+        int j = left;
         int k = mid + 1;
+
+        // Loop until one of the subarrays is exhausted
         while (j <= mid && k <= right) {
             if (arr[j] <= arr[k]) {
                 temp.add(arr[j]);
@@ -28,7 +32,12 @@ public class MergeSort {
         }
 
         // Copying elements to original array
-        for (int i = left; i < right; i++) {
+        for (int i = left; i <= right; i++) {
+            /*
+             * i-left returns the index of the copied array that means suppose left = 3 now
+             * i=3 and 3-3=0 hence at main index 3 the value of 0th index of the temporary
+             * array will be copied
+             */
             arr[i] = temp.get(i - left);
         }
     }
@@ -37,9 +46,14 @@ public class MergeSort {
         if (start >= end) {
             return;
         }
+        // Find middle index
+        // Main magic happens in finding mid element which divides the array
         int mid = (start + end) / 2;
-        mergeSortHelper(arr, 0, mid);
+        // Recursively sort left half
+        mergeSortHelper(arr, start, mid);
+        // Recursively sort right half
         mergeSortHelper(arr, mid + 1, end);
+        // Merge the two halves
         merge(arr, start, mid, end);
     }
 
