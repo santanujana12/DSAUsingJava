@@ -5,6 +5,7 @@ public class SelectionSort {
         arr[j] = temp;
     }
 
+    // Idea is to select the minimum element from the unsorted array and swap it with the first element
     public static int[] selectionSort(int[] arr) {
       int n = arr.length;
       for (int i = 0; i < n; i++) {

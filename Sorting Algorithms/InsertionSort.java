@@ -1,4 +1,7 @@
 public class InsertionSort {
+
+    // Idea is to insert the element at the correct position in the sorted array
+    // Front part of the array will always be sorted
     public static int[] insertionSort(int[] arr) {
         int n = arr.length;
          for(int i=1;i<n;i++){

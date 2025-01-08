@@ -3,7 +3,7 @@ import java.util.List;
 
 public class MergeSort {
 
-    // This function
+    // This function is used to merge two sorted arrays
     public static void merge(int[] arr, int left, int mid, int right) {
         // Temporary array to store sorted elements
         List<Integer> temp = new ArrayList<>();
