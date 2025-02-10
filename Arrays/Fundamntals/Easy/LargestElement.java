@@ -1,4 +1,4 @@
-package Arrays.Fundamntals;
+package Arrays.Fundamntals.Easy;
 
 public class LargestElement {
 

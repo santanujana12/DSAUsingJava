@@ -1,4 +1,4 @@
-package Arrays.Fundamntals;
+package Arrays.Fundamntals.Easy;
 
 public class LinearSearch{
     public static int linearSearch(int arr[],int target){
