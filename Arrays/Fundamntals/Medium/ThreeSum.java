@@ -8,7 +8,7 @@ public class ThreeSum {
     public static List<List<Integer>> threeSum(int[] arr, int n, int target) {
 
         List<List<Integer>> result = new ArrayList<>();
-        Set<List<Integer>>noDup = new HashSet<>();
+        Set<List<Integer>> noDup = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
@@ -31,31 +31,25 @@ public class ThreeSum {
         return result;
     }
 
-
     // TC: O(n^2) + log(n)
+    // SC: O(n)
     public static List<List<Integer>> threeSumBetter(int[] arr, int n, int target) {
 
         List<List<Integer>> result = new ArrayList<>();
-        Set<List<Integer>>noDup = new HashSet<>();
+        Set<List<Integer>> noDup = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
-            Set<Integer> isPresent=new HashSet<>();
+            Set<Integer> isPresent = new HashSet<>();
             for (int j = i + 1; j < n; j++) {
-                int thirdTerm = target-arr[i]-arr[j];
-                if(isPresent.contains(thirdTerm)){
-                    List<Integer>eachArray = Arrays.asList(arr[i],arr[j],thirdTerm);
+                int thirdTerm = target - arr[i] - arr[j];
+                if (isPresent.contains(thirdTerm)) {
+                    List<Integer> eachArray = Arrays.asList(arr[i], arr[j], thirdTerm);
                     Collections.sort(eachArray);
                     noDup.add(eachArray);
-                }
-                else{
+                } else {
                     isPresent.add(arr[j]);
                 }
             }
-
-            result.addAll(noDup);
-
-            return result;
-
         }
 
         result.addAll(noDup);
@@ -63,12 +57,59 @@ public class ThreeSum {
         return result;
     }
 
+    // TC: O(n^2)+O(nlogn)
+    // SC: O(1)
+    public static List<List<Integer>> threeSumOptimal(int[] arr, int n, int target) {
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        Arrays.sort(arr);
+
+        // Using two pointer approach
+        for(int i=0;i<n;i++){
+            // Remove duplicate on i
+            if(i>0 && arr[i]==arr[i-1]){
+                continue;
+            }
+            int j = i+1;
+            int k = n-1;
+
+            while(j<=k){
+
+                // Remove duplicates on j and k
+                if(j<k && arr[j]==arr[j+1]){
+                    j++;
+                }else if(k>j && arr[k]==arr[k-1]){
+                    k--;
+                }else{
+                    int sum = arr[i]+arr[j]+arr[k];
+                    if(sum>target){
+                        k--;
+                    }else if(sum<target){
+                        j++;
+                    }else{
+                        List<Integer>eachRow = new ArrayList<>();
+                        eachRow.add(arr[i]);
+                        eachRow.add(arr[j]);
+                        eachRow.add(arr[k]);
+
+                        result.add(eachRow);
+                        j++;
+                        k--;
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
-        int arr[] = {2, -2, 0, 3, -3, 5};
+        int arr[] = { 2, -2, 0, 3, -3, 5 };
         int n = arr.length;
         int target = 0;
 
-        List<List<Integer>> res = threeSumBetter(arr, n, target);
+        List<List<Integer>> res = threeSumOptimal(arr, n, target);
 
         for (int i = 0; i < res.size(); i++) {
             System.out.print("[");
