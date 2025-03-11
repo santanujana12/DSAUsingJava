@@ -66,38 +66,37 @@ public class ThreeSum {
         Arrays.sort(arr);
 
         // Using two pointer approach
-        for(int i=0;i<n;i++){
+        for (int i = 0; i < n; i++) {
             // Remove duplicate on i
-            if(i>0 && arr[i]==arr[i-1]){
+            if (i > 0 && arr[i] == arr[i - 1]) {
                 continue;
             }
-            int j = i+1;
-            int k = n-1;
+            int j = i + 1;
+            int k = n - 1;
 
-            while(j<=k){
-
-                // Remove duplicates on j and k
-                if(j<k && arr[j]==arr[j+1]){
+            while (j < k) {
+                int sum = arr[i] + arr[j] + arr[k];
+                if (sum < 0) {
                     j++;
-                }else if(k>j && arr[k]==arr[k-1]){
+                } else if (sum > 0) {
                     k--;
-                }else{
-                    int sum = arr[i]+arr[j]+arr[k];
-                    if(sum>target){
-                        k--;
-                    }else if(sum<target){
+                } else {
+                    List<Integer> eachRow = new ArrayList<>();
+                    eachRow.add(arr[i]);
+                    eachRow.add(arr[j]);
+                    eachRow.add(arr[k]);
+                    result.add(eachRow);
+                    j++;
+                    k--;
+                    // avoid duplicates on j
+                    while (j < k && arr[j] == arr[j - 1]) {
                         j++;
-                    }else{
-                        List<Integer>eachRow = new ArrayList<>();
-                        eachRow.add(arr[i]);
-                        eachRow.add(arr[j]);
-                        eachRow.add(arr[k]);
-
-                        result.add(eachRow);
-                        j++;
+                    }
+                    while (k > j & arr[k] == arr[k + 1]) {
                         k--;
                     }
                 }
+
             }
         }
 
