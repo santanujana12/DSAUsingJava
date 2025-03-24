@@ -1,7 +1,7 @@
 package Arrays.Fundamntals.Medium;
 import java.util.*;
 
-public class PascalTriangle {
+public class PascalTriangle3 {
 
     public static List<List<Integer>>pascalTriangle(int n){
         List<List<Integer>>result = new ArrayList<>();

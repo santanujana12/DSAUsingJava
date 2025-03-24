@@ -1,7 +1,6 @@
 package Arrays.Fundamntals.Easy;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class InteresctionOfTwoSortedArrays {
 

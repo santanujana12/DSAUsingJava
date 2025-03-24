@@ -1,4 +1,4 @@
-package Arrays.Fundamntals;
+package Arrays.Fundamntals.Easy;
 import java.util.*;
 
 public class UnionOfTwoSortedArrays {
