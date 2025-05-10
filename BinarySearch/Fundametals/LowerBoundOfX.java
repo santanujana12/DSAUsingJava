@@ -1,4 +1,4 @@
-package BinarySearch;
+package BinarySearch.Fundametals;
 
 import java.util.Arrays;
 

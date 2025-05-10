@@ -1,3 +1,5 @@
+package Arrays.Fundamntals.Medium;
+
 public class SortZeroAndOne {
 
     // Implementation of DNF Algorithm
