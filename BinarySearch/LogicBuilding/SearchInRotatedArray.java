@@ -2,7 +2,7 @@ package BinarySearch.LogicBuilding;
 
 public class SearchInRotatedArray {
     private static int search(int arr[], int k) {
-        int start = 0, end = arr.length-1;
+        int start = 0, end = arr.length - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
             if (arr[mid] == k) {
