@@ -1,4 +1,4 @@
-package Basics;
+package Basics.Numbers;
 
 public class FindSecondLargestElement {
     public static void main(String [] args){
