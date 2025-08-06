@@ -16,9 +16,9 @@ public class MergeTwoSortedArraysLeetCode {
     }
 
     public static void main(String[] args) {
-        int nums1[] = {};
-        int nums2[] = {1};
-        int m = 0, n = 1;
+        int nums1[] = {1,2,3,0,0,0};
+        int nums2[] = {2,5,6};
+        int m = 3, n = 3;
         mergeArrays(nums1, m, nums2, n);
         for (int i : nums1) {
             System.out.print(i + " ");
