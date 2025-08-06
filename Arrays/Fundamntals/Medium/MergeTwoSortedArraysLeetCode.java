@@ -1,4 +1,4 @@
-package Arrays.LogicBuilding;
+package Arrays.Fundamntals.Medium;
 
 public class MergeTwoSortedArraysLeetCode {
 

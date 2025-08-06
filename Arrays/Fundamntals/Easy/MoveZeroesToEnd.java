@@ -1,4 +1,4 @@
-package Arrays.LogicBuilding;
+package Arrays.Fundamntals.Easy;
 
 public class MoveZeroesToEnd {
 
