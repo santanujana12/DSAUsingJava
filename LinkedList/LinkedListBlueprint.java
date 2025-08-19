@@ -6,7 +6,6 @@ class Node {
     Node next = null;
 
     public Node(int data) {
-        System.out.println("Constructor called");
         this.data = data;
     }
 }
@@ -34,6 +33,10 @@ public class LinkedListBlueprint {
         this.size++;
     }
 
+    public void addAtHead(int data){
+        
+    }
+
     public void printLinkedList() {
         if (head == null) {
             System.out.println("Empty Linked List");
@@ -46,8 +49,25 @@ public class LinkedListBlueprint {
         }
     }
 
-    public void deleteNode(int data){
-        
+    public void deleteNode(int data) {
+        if (head.data == data) {
+            head = head.next;
+        } else {
+            Node curr = head;
+            while (curr != null && curr.next != null) {
+                if (curr.next.data == data) {
+                    Node takeNext = curr.next.next;
+                    curr.next = takeNext;
+                    this.size--;
+                } else {
+                    curr = curr.next;
+                }
+            }
+            if (curr.data != data) {
+                System.out.println("No data found");
+            }
+        }
+
     }
 
 }
