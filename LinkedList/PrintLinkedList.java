@@ -3,7 +3,6 @@ package LinkedList;
 public class PrintLinkedList extends LinkedListBlueprint {
     public PrintLinkedList() {
         super();
-        System.out.println("Constructor called");
     }
 
     public static void main(String[] args) {
@@ -22,5 +21,19 @@ public class PrintLinkedList extends LinkedListBlueprint {
 
         list.printLinkedList();
         System.out.println("Size of LL: " + list.getSize());
+        list.addAtHead(99);
+        System.out.println("After adding on head");
+        list.printLinkedList();
+        list.addAtTail(100);
+        System.out.println("After adding at tail");
+        list.printLinkedList();
+        System.out.println("Element at index"+list.getAtIndex(2));
+
+        list.addAtIndex(500, 3);
+        System.out.println("After adding at index");
+        list.printLinkedList();
+        list.deleteAtIndex(2);
+        System.out.println("After deletion at index");
+        list.printLinkedList();
     }
 }
