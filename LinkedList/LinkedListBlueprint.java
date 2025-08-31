@@ -54,7 +54,7 @@ public class LinkedListBlueprint {
         this.size++;
     }
 
-    public void printLinkedList() {
+    public void printLinkedList(Node head) {
         if (head == null) {
             System.out.println("Empty Linked List");
         } else {

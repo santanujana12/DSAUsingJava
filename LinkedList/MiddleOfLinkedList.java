@@ -11,7 +11,7 @@ public class MiddleOfLinkedList {
         Node head = list.getHead();
         Node slow = head;
         Node fast = head;
-        list.printLinkedList();
+        list.printLinkedList(head);
 
         while(fast!=null && fast.next!=null){
             slow=slow.next;
