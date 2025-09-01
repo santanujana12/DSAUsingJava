@@ -21,5 +21,4 @@ public class ReverseLinkedList {
         list.printLinkedList(head);
 
     }
-
 }
