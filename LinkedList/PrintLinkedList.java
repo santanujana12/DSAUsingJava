@@ -15,25 +15,26 @@ public class PrintLinkedList extends LinkedListBlueprint {
         list.addNode(6);
         list.addNode(7);
 
-        list.printLinkedList();
+        Node head = list.getHead();
+        list.printLinkedList(head);
         System.out.println("Size of LL: " + list.getSize());
         list.deleteNode(9);
 
-        list.printLinkedList();
+        list.printLinkedList(head);
         System.out.println("Size of LL: " + list.getSize());
         list.addAtHead(99);
         System.out.println("After adding on head");
-        list.printLinkedList();
+        list.printLinkedList(head);
         list.addAtTail(100);
         System.out.println("After adding at tail");
-        list.printLinkedList();
+        list.printLinkedList(head);
         System.out.println("Element at index"+list.getAtIndex(2));
 
         list.addAtIndex(500, 3);
         System.out.println("After adding at index");
-        list.printLinkedList();
+        list.printLinkedList(head);
         list.deleteAtIndex(2);
         System.out.println("After deletion at index");
-        list.printLinkedList();
+        list.printLinkedList(head);
     }
 }
