@@ -15,34 +15,42 @@ public class FindPalindromeLinkedList {
         return head;
     }
 
-    public static boolean findPalindrome(Node head, Node reversed) {
-        Node curr = head;
-        while (curr!= null) {
-            System.out.println(reversed.data+" "+curr.data);
-            if (reversed.data != curr.data) {
-                return false;
-            }
-            curr = curr.next;
-            reversed = reversed.next;
+    public static Node findMiddleNode(Node head) {
+        Node slow = head;
+        Node fast = head.next;
+        while (fast != null && fast.next!=null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return true;
+        return slow;
     }
+
+    // public static boolean findPalindrome(Node actual, Node reversed) {
+        
+
+    //     return true;
+    // }
+
+    // public static boolean isPalindrome(Node head) {
+    //     Node reversed = reverseLinkedList(head);
+    //     Node curr = head;
+    //     return findPalindrome(curr, reversed);
+    // }
 
     public static void main(String[] args) {
         LinkedListBlueprint list = new LinkedListBlueprint();
-        // for (int i = 1; i <= 10; i++) {
-        //     list.addNode(i);
-        // }
-        list.addNode(1);
-        list.addNode(2);
+        // list.addNode(1);
+        // list.addNode(2);
+        // list.addNode(2);
+        // list.addNode(1);
 
         Node head = list.getHead();
-        // list.printLinkedList(head);
-        Node reversed = reverseLinkedList(head);
+        list.printLinkedList(head);
+
         // list.printLinkedList(reversed);
+        list.printLinkedList(head);
 
-        boolean isPalindrome = findPalindrome(head, reversed);
-
-        System.out.println(isPalindrome);
+        // boolean isPalindrome = isPalindrome(head);
+        // System.out.println(isPalindrome);
     }
 }
