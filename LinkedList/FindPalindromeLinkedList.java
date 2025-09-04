@@ -17,40 +17,50 @@ public class FindPalindromeLinkedList {
 
     public static Node findMiddleNode(Node head) {
         Node slow = head;
-        Node fast = head.next;
-        while (fast != null && fast.next!=null) {
+        Node fast = head;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         return slow;
     }
 
-    // public static boolean findPalindrome(Node actual, Node reversed) {
-        
+    public static boolean findPalindrome(Node head) {
+        Node middle = findMiddleNode(head);
+        Node secondHalf = middle;
 
-    //     return true;
-    // }
+        Node reversed = reverseLinkedList(secondHalf);
+        Node curr = head;
+        while (reversed != null) {
+            if (curr.data != reversed.data) {
+                return false;
+            }
+            reversed = reversed.next;
+            curr = curr.next;
+        }
 
-    // public static boolean isPalindrome(Node head) {
-    //     Node reversed = reverseLinkedList(head);
-    //     Node curr = head;
-    //     return findPalindrome(curr, reversed);
-    // }
+        return true;
+    }
+
+    public static boolean isPalindrome(Node head) {
+        Node curr = head;
+        return findPalindrome(curr);
+    }
 
     public static void main(String[] args) {
         LinkedListBlueprint list = new LinkedListBlueprint();
-        // list.addNode(1);
-        // list.addNode(2);
-        // list.addNode(2);
-        // list.addNode(1);
+        // for (int i = 1; i <= 10; i++) {
+        //     list.addNode(i);
+        // }
+        list.addNode(1);
+        list.addNode(2);
+        list.addNode(2);
+        list.addNode(1);
 
         Node head = list.getHead();
         list.printLinkedList(head);
 
-        // list.printLinkedList(reversed);
-        list.printLinkedList(head);
-
-        // boolean isPalindrome = isPalindrome(head);
-        // System.out.println(isPalindrome);
+        boolean isPalindrome = isPalindrome(head);
+        System.out.println(isPalindrome);
     }
 }
