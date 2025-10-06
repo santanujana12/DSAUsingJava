@@ -138,4 +138,20 @@ public class LinkedListBlueprint {
         }
         this.size--;
     }
+
+    public Node reverseLinkedList(Node head){
+        Node curr = head;
+        Node prev = null;
+      
+        while(curr!=null){
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+
+        head = prev;
+
+        return head;
+    }
 }
