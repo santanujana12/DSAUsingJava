@@ -1,9 +1,10 @@
 package Trees.BinaryTrees;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PostOrderTraversal {
-    public static void postOrderHelper(TreeNode root, java.util.ArrayList<Integer> result) {
+    public static void postOrderHelper(TreeNode root, ArrayList<Integer> result) {
         if (root == null) {
             return;
         }
@@ -12,8 +13,8 @@ public class PostOrderTraversal {
         result.add(root.data);
     }
 
-    public static ArrayList<Integer> postOrderTraversal(TreeNode root) {
-        java.util.ArrayList<Integer> result = new java.util.ArrayList<>();
+    public static List<Integer> postOrderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
         postOrderHelper(root, result);
         return result;
     }
@@ -25,7 +26,7 @@ public class PostOrderTraversal {
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
 
-        java.util.ArrayList<Integer> result = postOrderTraversal(root);
+        List<Integer> result = postOrderTraversal(root);
 
         System.out.println("Post-order Traversal: " + result);
     }
