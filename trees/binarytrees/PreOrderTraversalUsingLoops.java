@@ -1,40 +1,35 @@
-package Trees.BinaryTrees;
+package trees.binarytrees;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PostOrderTraversalUsingTwoStacks {
-    public static List<Integer> postorderTraversal(TreeNode root) {
+public class PreOrderTraversalUsingLoops {
+
+    public static List<Integer> preorderTraversal(TreeNode root) {
         if (root == null) {
             return new ArrayList<>();
         }
 
-        List<Integer> ans = new ArrayList<>();
-        Stack<TreeNode> s1 = new Stack<>();
-        Stack<Integer> s2 = new Stack<>();
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> st = new Stack<>();
+        st.push(root);
 
-        s1.push(root);
+        while (!st.isEmpty()) {
+            TreeNode curr = st.pop();
+            res.add(curr.data);
 
-        while (!s1.isEmpty()) {
-            TreeNode curr = s1.pop();
-            s2.push(curr.data);
-
-            if (curr.left != null) {
-                s1.push(curr.left);
-            }
+            // Push right first so left is processed first
             if (curr.right != null) {
-                s1.push(curr.right);
+                st.push(curr.right);
+            }
+            if (curr.left != null) {
+                st.push(curr.left);
             }
         }
 
-        while (!s2.isEmpty()) {
-            ans.add(s2.pop());
-        }
-
-        return ans;
+        return res;
     }
-
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
@@ -49,10 +44,10 @@ public class PostOrderTraversalUsingTwoStacks {
 
         root.right.right.left = new TreeNode(9);
 
-        List<Integer> result = postorderTraversal(root);
+        List<Integer> result = preorderTraversal(root);
         for (int i : result) {
             System.out.print(i + " ");
         }
+        System.out.println();
     }
-
 }
